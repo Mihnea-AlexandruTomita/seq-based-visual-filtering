@@ -9,6 +9,8 @@ Published in IEEE Access, vol. 10, pp. 81974-81987, 2022 and available 📑 [her
 
 The goal of this work is to systematically investigate the effects of sequence-based filtering on top of single-frame-based VPR techniques for route-based navigation. We analyze the trade-offs between accuracy and computational cost, examine the impact of sequence length, and identify combinations of techniques that deliver high performance efficiently.
 
+> **Note:** The sequence-based implementation of RegionVLAD is also provided in this repository for completeness, although it was not evaluated in the paper.
+
 ## 📂 Repository Structure
 <pre>
 ├── AMOSNet/                   # AMOSNet supporting files – Add AmosNet.caffemodel in this folder
@@ -42,6 +44,18 @@ The goal of this work is to systematically investigate the effects of sequence-b
 │       ├── mat_to_checkpoint.py
 │       ├── net_from_mat.py
 │       └── nets.py
+├── RegionVLAD/                # RegionVLAD files
+│   ├── RegionVLAD_k.py        # Sequence-based RegionVLAD implementation
+│   ├── ReadMe.txt             # Original RegionVLAD citations
+│   ├── __init__.py
+│   ├── Vocabulary/            # Pre-computed vocabularies
+│   │   ├── Vocabulary_100_200_300_Protocol2.pkl
+│   │   ├── Vocabulary_100_200_300_Protocol3.pkl
+│   │   ├── Vocabulary_400_Protocol2.pkl
+│   │   └── Vocabulary_400_Protocol3.pkl
+│   └── AlexnetPlaces365/      # Supporting files for AlexNet backbone – Add alexnet_places365.caffemodel to this folder
+│       ├── deploy_alexnet_places365.prototxt
+│       └── places365CNN_mean.binaryproto  
 ├── figures/ 
 │   └── plot_figure3.py        # Script to reproduce Figure 3
 ├── AMOSNet_k.py               # Sequence-based AMOSNet implementation
@@ -50,15 +64,16 @@ The goal of this work is to systematically investigate the effects of sequence-b
 </pre>
 
 ## 🛠 Required Libraries By Technique:
-- **AMOSNet:** `caffe`, `numpy`, `cv2`, `csv`
-- **HybridNet:** `caffe`, `numpy`, `cv2`, `csv`        
+- **AMOSNet:** `caffe`, `numpy`, `cv2`, `csv`       
 - **CALC:** `caffe`, `numpy`, `cv2`, `csv`, `time`     
-- **HOG:** `numpy`, `cv2`, `csv`                  
-- **NetVLAD:** `tensorflow`, `numpy`, `cv2`, `csv`, `time`            
+- **HOG:** `numpy`, `cv2`, `csv`
+- **HybridNet:** `caffe`, `numpy`, `cv2`, `csv`                  
+- **NetVLAD:** `tensorflow`, `numpy`, `cv2`, `csv`, `time`
+- **RegionVLAD:** `caffe`, `numpy`, `cv2`, `csv`, `skimage`, `pickle`, `itertools`, `time`, `os`           
 
 
 ## 🚀 Running the Sequence-Based VPR Techniques
-**Note:** For each VPR technique in this repository, the Python files are named with a `_k` suffix (e.g. `NetVLAD_k.py`). This indicates that the implementation uses sequence-based filtering, where `k` represents the number of consecutive images in each sequence. The value of `k` can be adjusted for each technique. For more details, please refer to the accompanying paper.
+> **Note:** For each VPR technique in this repository, the Python files are named with a `_k` suffix (e.g. `NetVLAD_k.py`). This indicates that the implementation uses sequence-based filtering, where `k` represents the number of consecutive images in each sequence. The value of `k` can be adjusted for each technique. For more details, please refer to the accompanying paper.
 
 Before running any `.py` file, update the following variables:
 - `total_Query_Images` → Number of images in the **query folder**.
