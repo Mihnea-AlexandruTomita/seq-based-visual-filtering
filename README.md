@@ -11,9 +11,6 @@ The goal of this work is to systematically investigate the effects of sequence-b
 
 ## 📂 Repository Structure
 <pre>
-├── AMOSNet_k.py               # Sequence-based AMOSNet implementation
-├── CALC_k.py                  # Sequence-based CALC implementation
-├── HybridNet_k.py             # Sequence-based HybridNet implementation
 ├── AMOSNet/                   # AMOSNet supporting files – Add AmosNet.caffemodel in this folder
 │   ├── ReadMe.txt             # Original AMOSNet citations
 │   ├── amosnet_mean.npy       
@@ -45,6 +42,11 @@ The goal of this work is to systematically investigate the effects of sequence-b
 │       ├── mat_to_checkpoint.py
 │       ├── net_from_mat.py
 │       └── nets.py
+├── figures/ 
+│   └── plot_figure3.py        # Script to reproduce Figure 3
+├── AMOSNet_k.py               # Sequence-based AMOSNet implementation
+├── CALC_k.py                  # Sequence-based CALC implementation
+├── HybridNet_k.py             # Sequence-based HybridNet implementation  
 </pre>
 
 ## 🛠 Required Libraries By Technique:
