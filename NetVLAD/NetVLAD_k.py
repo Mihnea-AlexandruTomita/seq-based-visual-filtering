@@ -24,13 +24,13 @@ query_directory = '/home/mihnea/datasets/nordland/live/'
 ref_directory = '/home/mihnea/datasets/nordland/memory/'
 
 
-def get_query_image_name(j):
-    query_name = str(j + query_index_offset)
+def get_query_image_name(query):
+    query_name = str(query + query_index_offset)
      
     return query_name + '.png'
 
-def get_ref_image_name(j):
-    ref_name = str(j + ref_index_offset)
+def get_ref_image_name(ref):
+    ref_name = str(ref + ref_index_offset)
     
     return ref_name + '.png'
 
