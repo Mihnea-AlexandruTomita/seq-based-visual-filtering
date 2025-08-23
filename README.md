@@ -7,16 +7,22 @@ This repository provides sequence-based implementations of five Visual Place Rec
 
 Published in IEEE Access, vol. 10, pp. 81974-81987, 2022 and available 📑 [here](https://doi.org/10.1109/ACCESS.2022.3196389).
 
-The goal of this work is to systematically investigate the effects of sequence-based filtering on top of single-frame-based VPR techniques for route-based navigation. We analyze the trade-offs between accuracy and computational cost, examine the impact of sequence length, and identify combinations of techniques that deliver high performance efficiently.
+The goal of this work is to systematically investigate the effects of sequence-based filtering on top of single-frame-based VPR techniques for route-based navigation. We analyze the trade-offs between accuracy and computational cost, examine the impact of sequence length, and identify combinations of techniques that deliver high performance efficiently. 
 
-> **Note:** The sequence-based implementation of RegionVLAD is also provided in this repository for completeness, although it was not evaluated in the paper.
+> **Note:** The sequence-based implementations of RegionVLAD and AlexNet are also provided in this repository for completeness, although they were not evaluated in the paper.
 
 ## 📂 Repository Structure
 <pre>
-├── AMOSNet/                   # AMOSNet supporting files – Add AmosNet.caffemodel in this folder
+├── AMOSNet/                   # AMOSNet supporting files – Add <b>AmosNet.caffemodel</b> in this folder
 │   ├── ReadMe.txt             # Original AMOSNet citations
 │   ├── amosnet_mean.npy       
-│   └── deploy.prototxt        
+│   └── deploy.prototxt 
+├── AlexNet/                   # AlexNet files
+│   ├── AlexNet_k.py           # Sequence-based AlexNet implementation
+│   ├── ReadMe.txt             # Original AlexNet citations  
+│   ├── __init__.py
+│   └── alexnet/               # Network configuration folder - Add <b>alexnet.caffemodel</b> in this folder
+│       └── deploy.prototxt  
 ├── CALC/                      # CALC supporting files
 │   ├── ReadMe.txt             # Original CALC citations
 │   ├── model/                 # Add calc.caffemodel in this folder
@@ -26,7 +32,7 @@ The goal of this work is to systematically investigate the effects of sequence-b
 ├── HOG/                       # HOG files
 │   ├── HOG_k.py               # Sequence-based HOG implementation
 │   └── ReadMe.txt             # Original HOG citations
-├── HybridNet/                 # HybridNet supporting files – Add HybridNet.caffemodel in this folder
+├── HybridNet/                 # HybridNet supporting files – Add <b>HybridNet.caffemodel</b> in this folder
 │   ├── hybridnet_mean.npy     # Pretrained weights
 │   ├── deploy.prototxt        # Network configuration
 │   └── ReadMe.txt             # Original HybridNet citations
@@ -34,7 +40,7 @@ The goal of this work is to systematically investigate the effects of sequence-b
 │   ├── __init__.py
 │   ├── ReadMe.txt             # Original NetVLAD citations
 │   ├── NetVLAD_k.py           # Sequence-based NetVLAD implementation
-│   ├── checkpoints/           # Add the checkpoints for the NetVLAD model to this folder
+│   ├── checkpoints/           # Add the <b>checkpoints</b> for the NetVLAD model to this folder
 │   │   └── ReadMe.txt         
 │   └── netvlad_tf/            # Supporting TensorFlow modules
 │       ├── .gitignore
@@ -53,7 +59,7 @@ The goal of this work is to systematically investigate the effects of sequence-b
 │   │   ├── Vocabulary_100_200_300_Protocol3.pkl
 │   │   ├── Vocabulary_400_Protocol2.pkl
 │   │   └── Vocabulary_400_Protocol3.pkl
-│   └── AlexnetPlaces365/      # Supporting files for AlexNet backbone – Add alexnet_places365.caffemodel to this folder
+│   └── AlexnetPlaces365/      # Supporting files for AlexNet backbone – Add <b>alexnet_places365.caffemodel</b> to this folder
 │       ├── deploy_alexnet_places365.prototxt
 │       └── places365CNN_mean.binaryproto  
 ├── figures/ 
@@ -66,7 +72,7 @@ The goal of this work is to systematically investigate the effects of sequence-b
 
 ## 📦 Pretrained Models
 
-📥 [MODEL_DOWNLOADS.md](MODEL_DOWNLOADS.md) provides the web locations and instructions for downloading all pretrained models required by the VPR techniques in this repository. These files are not included due to size restrictions.
+[MODEL_DOWNLOADS.md](MODEL_DOWNLOADS.md) provides the web locations and instructions for downloading all pretrained models required by the VPR techniques in this repository. These files are not included due to size restrictions.
 
 ## 🛠 Required Libraries By Technique:
 - **AMOSNet:** `caffe`, `numpy`, `cv2`, `csv`       
@@ -74,7 +80,8 @@ The goal of this work is to systematically investigate the effects of sequence-b
 - **HOG:** `numpy`, `cv2`, `csv`
 - **HybridNet:** `caffe`, `numpy`, `cv2`, `csv`                  
 - **NetVLAD:** `tensorflow`, `numpy`, `cv2`, `csv`, `time`
-- **RegionVLAD:** `caffe`, `numpy`, `cv2`, `csv`, `skimage`, `pickle`, `itertools`, `time`, `os`           
+- **RegionVLAD:** `caffe`, `numpy`, `cv2`, `csv`, `skimage`, `pickle`, `itertools`, `time`, `os`
+- **AlexNet:** `caffe`, `numpy`, `cv2`, `csv`, `os`           
 
 
 ## 🚀 Running the Sequence-Based VPR Techniques
@@ -130,3 +137,13 @@ If you found this repository helpful, please cite the paper below:
   keywords={Filtering;Visualization;Navigation;Convolutional neural networks;Lighting;Image matching;Electronic mail;Sequence-based filtering;visual localization;visual place recognition},
   doi={10.1109/ACCESS.2022.3196389}}
  </pre>
+
+## References for Evaluated VPR Techniques
+The sequence-based filtering implementations in this repository build upon the single-frame-based VPR techniques that were evaluated in [VPR-Bench](https://github.com/MubarizZaffar/VPR-Bench) and described in the associated paper:
+
+**Title:** VPR-Bench: An Open-Source Visual Place Recognition Evaluation Framework with Quantifiable Viewpoint and Appearance Change  
+**Authors:** M Zaffar, S Garg, M Milford, J Kooij, D Flynn, K McDonald-Maier, S Ehsan  
+
+Published in: International Journal of Computer Vision, 2021 and available [here](https://link.springer.com/article/10.1007/s11263-021-01469-5).
+
+Citations for the original authors can be found in the `ReadMe.txt` file within each technique's folder (e.g. AMOSNet/ReadMe.txt, HOG/ReadMe.txt, etc.). All sequence-based filtering modifications in this repository were added on top of these original implementations, with proper credit given to the original authors for the backbone code.
