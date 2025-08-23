@@ -60,8 +60,13 @@ The goal of this work is to systematically investigate the effects of sequence-b
 │   └── plot_figure3.py        # Script to reproduce Figure 3
 ├── AMOSNet_k.py               # Sequence-based AMOSNet implementation
 ├── CALC_k.py                  # Sequence-based CALC implementation
-├── HybridNet_k.py             # Sequence-based HybridNet implementation  
+├── HybridNet_k.py             # Sequence-based HybridNet implementation 
+├── MODEL_DOWNLOADS.md         # Markdown file containing download links and instructions for all pretrained models    
 </pre>
+
+## 📦 Pretrained Models
+
+📥 [MODEL_DOWNLOADS.md](MODEL_DOWNLOADS.md) provides the web locations and instructions for downloading all pretrained models required by the VPR techniques in this repository. These files are not included due to size restrictions.
 
 ## 🛠 Required Libraries By Technique:
 - **AMOSNet:** `caffe`, `numpy`, `cv2`, `csv`       
