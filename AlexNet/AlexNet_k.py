@@ -5,28 +5,28 @@ import csv
 import os
 from os.path import dirname
 
-total_Query_Images = 100  # number of query images in dataset
-total_Ref_Images = 100  # number of reference images in dataset
+total_Query_Images = 172  # number of query images in dataset
+total_Ref_Images = 172  # number of reference images in dataset
 ref_index_offset = 0
 query_index_offset = 0
 
 k = 3  # sequence length
 
 # NOTE: Update the query and reference image paths below to point to your own dataset
-query_directory = '/home/mihnea/CoHOG_Results_RAL2019/campus_loop_original/live/'
-ref_directory = '/home/mihnea/CoHOG_Results_RAL2019/campus_loop_original/memory/'
+query_directory = '/home/mihnea/datasets/nordland/live/'
+ref_directory = '/home/mihnea/datasets/nordland/memory/'
 
 
 def get_query_image_name(query):
     query_name = str(query + query_index_offset)
 
-    return query_name + '.jpg'
+    return query_name + '.png'
 
 
 def get_ref_image_name(ref):
     ref_name = str(ref + ref_index_offset)
 
-    return ref_name + '.jpg'
+    return ref_name + '.png'
 
 
 first_it = True
