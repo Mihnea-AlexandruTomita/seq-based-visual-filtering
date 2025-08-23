@@ -28,6 +28,11 @@ Please download them manually from the provided links and place them in the appr
 - **Download link:** [http://places2.csail.mit.edu/models_places365/alexnet_places365.caffemodel](http://places2.csail.mit.edu/models_places365/alexnet_places365.caffemodel)  
 - **Destination folder:** `RegionVLAD/AlexnetPlaces365/`
 
+## AlexNet
+- **File required:** `alexnet.caffemodel`
+- **Download link:** [http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel](http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel)
+- **Destination folder:** `AlexNet/alexnet/` 
+
 ## Notes
 - Place each file in the corresponding folder as specified above.  
 - If links become unavailable, refer to the original project pages cited in the `ReadMe.txt` files inside each model’s folder. 
